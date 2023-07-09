@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'students/css/style.css' %}">
+    <title>Музыкальная школа</title>
+  </head>
+  <body>
+    <h1>Список учащихся</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Имя</th>
+          <th>Возраст</th>
+          <th>Инструмент</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ student.name }}</td>
+          <td>{{ student.age }}</td>
+          <td>{{ student.instrument }}</td>
+          <td>
+            <a href="{% url 'student_edit' pk=student.pk %}">Редактировать</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <a href="{% url 'student_create' %}">Добавить учащегося</a>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'students/css/style.css' %}">
+    <title>Создание учащегося</title>
+  </head>
+  <body>
+    <h1>Создание учащегося</h1>
+
+    <form method="post">
+      {% csrf_token %}
+      <label for="name">Имя:</label>
+      <input type="text" id="name" name="name" required /><br />
+
+      <label for="age">Возраст:</label>
+      <input type="number" id="age" name="age" required /><br />
+
+      <label for="instrument">Инструмент:</label>
+      <input type="text" id="instrument" name="instrument" required /><br />
+
+      <input type="submit" value="Создать" />
+    </form>
+  </body>
+</html>
